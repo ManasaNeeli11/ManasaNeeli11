@@ -1,0 +1,51 @@
+def add_contact(name, number):
+    contacts[name] = number
+    print("Contact added successfully!")
+
+def search_contact(name):
+    if name in contacts:
+        print(f"Name: {name}, Number: {contacts[name]}")
+    else:
+        print("Contact not found.")
+
+def display_all_contacts():
+    if contacts:
+        print("All contacts:")
+        for name, number in contacts.items():
+            print(f"Name: {name}, Number: {number}")
+    else:
+        print("Contact book is empty.")
+
+def delete_contact(name):
+    if name in contacts:
+        del contacts[name]
+        print("Contact deleted successfully!")
+    else:
+        print("Contact not found.")
+
+def main():
+    while True:
+        print("\n1. Add Contact\n2. Search Contact\n3. Display All Contacts\n4. Delete Contact\n5. Quit")
+        choice = input("Enter your choice: ")
+
+        if choice == "1":
+            name = input("Enter name: ")
+            number = input("Enter number: ")
+            add_contact(name, number)
+        elif choice == "2":
+            name = input("Enter name to search: ")
+            search_contact(name)
+        elif choice == "3":
+            display_all_contacts()
+        elif choice == "4":
+            name = input("Enter name to delete: ")
+            delete_contact(name)
+        elif choice == "5":
+            print("Exiting program...")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+
+if __name__ == "__main__":
+    main()
